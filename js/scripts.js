@@ -10,9 +10,13 @@ $(document).ready(function() {
     var phrase = $("input#phrase").val();
     var result = phrase;
     var phraseSlice = phrase.slice(0, 1);
+    var phraseQ = phrase.slice(0, 2);
 
     if ((phrase[0] === "a") || (phrase[0] === "e") || (phrase[0] === "i") || (phrase[0] === "o") || (phrase[0] === "u")){
       result = phrase + "ay";
+    } else if ((phrase[0] === "q") && (phrase[1] === "u")) {
+      phrase = phrase.replace(phraseQ,"");
+      result = phrase + phraseQ + "ay";
     } else if ((phrase[0] != "a") || (phrase[0] != "e") || (phrase[0] != "i") || (phrase[0] != "o") || (phrase[0] != "u")) {
       phrase = phrase.replace(phraseSlice,"");
       result = phrase + phraseSlice + "ay";
